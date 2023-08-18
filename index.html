@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="bg-cyan-950 mt-0">
+    <h1 class="text-3xl text-center font-mono font-bold p-5 text-cyan-50">
+      BMI calculator
+    </h1>
+  </header>
+  <main>
+    <div class="BMIcal grid lg:grid-cols-2 grid-cols-1">
+      <div class="jsDombmi flex flex-col justify-center items-center bg-white">
+        <div class="bmiCalculator bg-cyan-500 mt-5 rounded-lg text-center flex flex-col justify-center items-center">
+
+          <div class=" bg-cyan-500 pt-10 pl-10 pr-10 rounded-2xl">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="300px"
+              height="163px" viewBox="0 0 300 163">
+              <g transform="translate(18,18)" style="font-family:arial,helvetica,sans-serif;font-size: 12px;">
+                <defs>
+                  <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7"></polygon>
+                  </marker>
+                  <path id="curvetxt1" d="M-4 140 A140 140, 0, 0, 1, 284 140" style="fill: none;"></path>
+                  <path id="curvetxt2" d="M33 43.6 A140 140, 0, 0, 1, 280 140" style="fill: none;"></path>
+                  <path id="curvetxt3" d="M95 3 A140 140, 0, 0, 1, 284 140" style="fill: none;"></path>
+                  <path id="curvetxt4" d="M235.4 33 A140 140, 0, 0, 1, 284 140" style="fill: none;"></path>
+                </defs>
+                <path d="M0 140 A140 140, 0, 0, 1, 6.9 96.7 L140 140 Z" fill="#ffa59e"></path>
+                <path d="M6.9 96.7 A140 140, 0, 0, 1, 12.1 83.1 L140 140 Z" fill="#fc766d"></path>
+                <path d="M12.1 83.1 A140 140, 0, 0, 1, 22.6 63.8 L140 140 Z" fill="#f7382a"></path>
+                <path d="M22.6 63.8 A140 140, 0, 0, 1, 96.7 6.9 L140 140 Z" fill="#f71505"></path>
+                <path d="M96.7 6.9 A140 140, 0, 0, 1, 169.1 3.1 L140 140 Z" fill="#d11002"></path>
+                <path d="M169.1 3.1 A140 140, 0, 0, 1, 233.7 36 L140 140 Z" fill="#a30d02"></path>
+                <path d="M233.7 36 A140 140, 0, 0, 1, 273.1 96.7 L140 140 Z" fill="#750800"></path>
+                <path d="M273.1 96.7 A140 140, 0, 0, 1, 280 140 L140 140 Z" fill="#300300"></path>
+                <path d="M45 140 A90 90, 0, 0, 1, 230 140 Z" fill="#06B6D4"></path>
+                <circle cx="140" cy="140" r="5" fill="#666"></circle>
+                <g style="paint-order: stroke;stroke: #ffffff;stroke-width: 2px;"><text x="25" y="111"
+                    transform="rotate(-72, 25, 111)">16</text><text x="30" y="96"
+                    transform="rotate(-66, 30, 96)">17</text><text x="35" y="83"
+                    transform="rotate(-57, 35, 83)">18.5</text><text x="97" y="29"
+                    transform="rotate(-18, 97, 29)">25</text><text x="157" y="20"
+                    transform="rotate(12, 157, 20)">30</text><text x="214" y="45"
+                    transform="rotate(42, 214, 45)">35</text><text x="252" y="95"
+                    transform="rotate(72, 252, 95)">40</text>
+                </g>
+                <g style="color: #ffffff;" class="text-white text-sm font-mono"><text>
+                    <textPath xlink:href="#curvetxt1" class="font-mono">Underweight</textPath>
+                  </text><text>
+                    <textPath xlink:href="#curvetxt2" class="font-mono">Normal</textPath>
+                  </text><text>
+                    <textPath xlink:href="#curvetxt3" class="font-mono">Overweight</textPath>
+                  </text><text>
+                    <textPath xlink:href="#curvetxt4" class="font-mono">Obesity</textPath>
+                  </text></g>
+                <line x1="140" y1="140" x2="65" y2="140" stroke="#083344" stroke-width="2" marker-end="url(#arrowhead)">
+                  <animateTransform attributeName="transform" id="rotationAnimation" attributeType="XML" type="rotate"
+                    from="5 140 140" to="0 140 140" dur="1s" fill="freeze" repeatCount="1"></animateTransform>
+                </line>
+                <!-- <text x="67" y="120" class="text-white text-2xl font-mono" style="font-weight:bold; ">BMI =
+                  0</text> -->
+                <!-- <h1 class="text-4xl font-bold font-mono w-[100%] rounded-t-lg text-cyan-950  py-4">BMI :
+                  <span id="BMIresult" class="text-white">00.00</span>
+                </h1> -->
+              </g>
+            </svg>
+            <h1 class="text-4xl font-bold font-mono w-[100%] rounded-t-lg text-cyan-950  py-4">BMI :
+              <span id="BMIresult" class="text-cyan-500">00.00</span>
+            </h1>
+
+          </div>
+          <!-- <div class="manORwomen flex items-center justify-center gap-5 mt-2">
+            <button class="border-r-2 pr-4 text-cyan-900  text-xl font-mono flex justify-center gap-1"
+              data-toggle="toggle" data-active="true">Men<i
+                class="fa-solid fa-person text-4xl text-cyan-900 active:text-white"></i></button>
+            <button class="text-cyan-900  text-xl font-mono flex justify-center gap-1" data-toggle="toggle"
+              data-active="false"><i
+                class="fa-solid fa-person-dress text-4xl text-cyan-900  active:text-white"></i>Women</button>
+
+          </div> -->
+          <div class="height mb-2 rounded-xl w-[100%] px-5 py-3 bg-cyan-500 flex justify-center items-center gap-5">
+            <h1 class="text-slate-950 opacity-50 font-mono font-semibold text-lg">Height :</h1>
+            <input style="width: 75px;" class="pl-2 py-2 rounded-lg border-cyan-950" class="rounded-md" type="number"
+              name="feet" id="feet" min="1" max="8" placeholder="feet">
+            <input style="width: 75px;" class="pl-2 py-2 rounded-lg border-cyan-950" type="number" class="rounded-md"
+              name="inch" min="0" max="11" id="inch" placeholder="Inch">
+          </div>
+          <div class="age&we w-[100%] flex justify-center gap-3 pt-2 bg-cyan-500  rounded-xl">
+            <!-- <h1 class="text-slate-950 opacity-50 font-mono font-semibold text-lg">Age :</h1>
+            <input type="number" name="age" style="width: 100px;" id="age" placeholder="Age"
+              class="pl-2 py-2 rounded-lg border-cyan-950" min="1" max="100"> -->
+            <h1 class="text-slate-950 opacity-50 font-mono font-semibold text-lg">Weight:</h1>
+            <input type="number" name="Weight" style="width: 180px;" id="weight" placeholder="Weight"
+              class="pl-2 py-2 rounded-lg border-cyan-950" min="1" max="300">
+          </div>
+          <div class="calculate flex justify-center gap-5 pb-5 pt-2">
+            <button class="text-white text-xl font-mono bg-cyan-950  rounded-lg py-2 px-5" type="submit"
+              id="BMIsubmit">Calculate</button>
+            <!-- <button class="text-white text-xl font-mono bg-cyan-950 rounded-lg py-2 px-5 " type="reset">Reset</button> -->
+          </div>
+        </div>
+      </div>
+      <div class="yourBMI bg-white h-auto">
+        <h1 class="text-center text-3xl font-mono font-bold p-3 text-cyan-950">
+          Health Suggestion from Expert AI
+        </h1>
+        <div class="experAi">
+          <h1 class="text-base mt-10 text-cyan-950 font-mono" id="expertText">Hello Mr.
+            Welcome
+          </h1>
+
+        </div>
+      </div>
+    </div>
+
+
+
+  </main>
+
+  <script src="./allScript/script.js"></script>
+  <script src="./allScript/animation.js"></script>
+  <script src="./allScript/underweight.js"></script>
+  <script src="./allScript/Normal.js"></script>
+  <script src="./allScript/Overweight.js"></script>
+</body>
+
+</html>
